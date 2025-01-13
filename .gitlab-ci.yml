@@ -1,0 +1,16 @@
+variables:
+  PROJECT_NAME: dstp-syd
+
+before_script:
+  - export TAG=$CI_COMMIT_TAG$CI_PIPELINE_ID
+  - if [ -z "${CI_COMMIT_TAG}" ]; then export TAG=${CI_COMMIT_SHORT_SHA}${CI_PIPELINE_ID}; fi
+
+include:
+  - project: 'devops/gitlab-template'
+    file: 'gitlab-workflow-rules.yml'
+  - project: 'devops/gitlab-template'
+    file: 'gitlab-wxwork-notify.yml'
+  - project: 'devops/gitlab-template'
+    file: 'gitlab-ci/dstp/dstp-syd/.gitlab-ci-for-fat.yml'
+  - project: 'devops/gitlab-template'
+    file: 'gitlab-ci/dstp/dstp-syd/.gitlab-ci-for-pro.yml'

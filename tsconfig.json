@@ -1,0 +1,25 @@
+{
+  "files": [],
+  "extends": "./tsconfig.app.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "strict": true, //
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+  // "references": [{
+  // 		"path": "./tsconfig.node.json"
+  // 	},
+  // 	{
+  // 		"path": "./tsconfig.app.json"
+  // 	}
+  // ]
+}
