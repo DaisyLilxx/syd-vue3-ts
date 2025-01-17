@@ -98,6 +98,10 @@ const goLogin = () => {
     router.push({ path: 'login', query: { referPage: '/my' } })
   }
 }
+const exit = () => {
+  UserStore.clearUserMessStore()
+  HeaderStore.clearHeaderStore()
+}
 </script>
 <template>
   <div class="pageBg my">
@@ -126,6 +130,14 @@ const goLogin = () => {
         <van-cell title="联系客服" is-link to="customerService" :border="false">
           <template #icon>
             <span class="span span2"></span>
+          </template>
+          <template #right-icon>
+            <span class="arrow"></span>
+          </template>
+        </van-cell>
+        <van-cell title="退出登录" is-link @click="exit" :border="false">
+          <template #icon>
+            <span class="span span1"></span>
           </template>
           <template #right-icon>
             <span class="arrow"></span>
